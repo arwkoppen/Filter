@@ -48,16 +48,15 @@ namespace Filter
                 array[k, 1] = kw * Cos((PI * (1 + (2 * k))) / (2 * (double)poles));
                 WriteLine("Pole {0} @: sigma: {1}; omega: {2}\n", (k + 1), array[k, 0], array[k, 1]);
             }
-            WriteLine("\nEnter the -3dB frequency:");
+            WriteLine("\nEnter the -3 dB frequency:");
             do
             {
                 input = ReadLine();
                 input_boolean = Double.TryParse(input, out f);
             }
             while ((f <= 0) || (input_boolean = false));
-            WriteLine("\nThe capacitor-values are normalized for using 1 kOhm resistors:\n");
-            k = (int)((n - 1) / 2);
-            for (k = k; k >= 0; k--)
+            WriteLine("\nThe capacitor-values are normalized for use with 1 kOhm resistors:\n");
+            for (k = ((int)((n - 1) / 2)); k >= 0; k--)
             {
                 cap1 = (-1 / array[k, 0]);
                 cap2 = (1 / ((array[k, 0] * array[k, 0]) + (array[k, 1] * array[k, 1] * cap1)));
