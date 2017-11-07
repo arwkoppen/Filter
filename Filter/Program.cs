@@ -19,7 +19,7 @@ namespace Filter
             double n, ripple, f, cap1, cap2,
                       eps, help, ks, kw;
             double[,] array = new double[256, 2];
-            int k, poles;
+            int k, poles, counter;
             WriteLine("Enter the ripple of the filter in dB (min>0, max<=2): ");
             do
             {
@@ -56,7 +56,8 @@ namespace Filter
             }
             while ((f <= 0) || (input_boolean = false));
             WriteLine("\nThe capacitor-values are normalized for use with 1 kOhm resistors:\n");
-            for (k = ((int)((n - 1) / 2)); k >= 0; k--)
+            counter = (int)((n - 1) / 2);
+            for (k = counter; k >= 0; k--)
             {
                 cap1 = (-1 / array[k, 0]);
                 cap2 = (1 / ((array[k, 0] * array[k, 0]) + (array[k, 1] * array[k, 1] * cap1)));
