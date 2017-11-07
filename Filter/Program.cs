@@ -46,7 +46,7 @@ namespace Filter
             {
                 array[k, 0] = ks * Sin((PI * (1 + (2 * k))) / (2 * (double)poles));
                 array[k, 1] = kw * Cos((PI * (1 + (2 * k))) / (2 * (double)poles));
-                WriteLine("Pole {0} @: sigma: {1}; omega: {2}\n", (k + 1), array[k, 0], array[k, 1]);
+                WriteLine("Pole {0} @: sigma= {1}; omega= {2}\n", (k + 1), array[k, 0], array[k, 1]);
             }
             WriteLine("\nEnter the -3 dB frequency:");
             do
