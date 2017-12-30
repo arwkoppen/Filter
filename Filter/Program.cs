@@ -1,4 +1,9 @@
+// C#
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
 using System;
+using Microsoft.Toolkit;
+using Xamarin.Forms;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +13,13 @@ using static System.Convert;
 using static System.Math;
 using static System.Console;
 
-namespace Filter
+namespace Filter_UWP2
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
+            AppCenter.Start("0430dee9-f26c-4b11-b0e4-f6abf670cbca", typeof(Analytics));
             Boolean input_boolean;
             string input;
             double n, ripple, f, cap1, cap2,
@@ -28,14 +34,14 @@ namespace Filter
             }
             while ((ripple <= 0) || (ripple > 2) || (input_boolean == false));
             eps = Sqrt(Pow(10.0, y: (0.1 * ripple)) - 1);
-            WriteLine("Enter the order in number of poles (max256): ");
+            WriteLine("Enter the order in number of poles (max255): ");
             do
             {
                 input = ReadLine();
                 input_boolean = Double.TryParse(input, out n);
                 poles = (int)n;
             }
-            while ((poles <= 0) || (poles > 256) || (input_boolean == false));
+            while ((poles <= 0) || (poles > 255) || (input_boolean == false));
             help = 1 / eps;
             help = help + Sqrt((help * help) + 1);
             help = Pow(help, y: (1 / (double)poles));
@@ -66,6 +72,8 @@ namespace Filter
             WriteLine("Press <ENTER> to Abort the Program");
             input = ReadLine();
         }
-
     }
 }
+
+
+
