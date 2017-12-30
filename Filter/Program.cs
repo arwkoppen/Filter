@@ -17,7 +17,7 @@ namespace Filter_UWP2
 {
     internal static class Program
     {
-        private static void Main()
+        private static void Main(string[] args)
         {
             AppCenter.Start("0430dee9-f26c-4b11-b0e4-f6abf670cbca", typeof(Analytics));
             Boolean input_boolean;
